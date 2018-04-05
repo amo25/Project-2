@@ -9,310 +9,310 @@ z2
 cModel Technology
 dC:/intelFPGA_pro/17.0
 vADDER32
-Z0 !s110 1522955914
+!s110 1522959353
 !i10b 1
 !s100 @ZkWRF6l:NO=ZdIGm10j=2
 IV__RLHaa8z9=@VJ[6oX9V0
-Z1 VDg1SIo80bB@j0V0VzS_@n1
-Z2 dC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/Modelsim
-Z3 w1444784750
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 dC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/Modelsim
+Z2 w1444784750
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/adder32.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/adder32.v
 L0 9
-Z4 OV;L;10.5c;63
+Z3 OV;L;10.5c;63
 r1
 !s85 0
 31
-Z5 !s108 1522955914.000000
+Z4 !s108 1522959353.000000
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/adder32.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/adder32.v|
 !i113 1
-Z6 o-work CompOrg_P2
-Z7 tCvgOpt 0
+Z5 o-work CompOrg_P2
+Z6 tCvgOpt 0
 n@a@d@d@e@r32
 vDMEM
-R0
+Z7 !s110 1522959354
 !i10b 1
 !s100 Ka^BQ]?bfog<;7oT3f2nK1
 IGJ7kHPg]G6WQ5obog@=LC2
+R0
 R1
 R2
-R3
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/data-memory.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/data-memory.v
 L0 22
-R4
+R3
 r1
 !s85 0
 31
-R5
+R4
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/data-memory.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/data-memory.v|
 !i113 1
+R5
 R6
-R7
 n@d@m@e@m
 vEXTEND
-R0
+R7
 !i10b 1
 !s100 7:LZNzmcN5PVLOcTcY<Io3
 Ic8<dKFhF8FM]i3;gL250n2
+R0
 R1
 R2
-R3
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/extend.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/extend.v
 L0 14
-R4
+R3
 r1
 !s85 0
 31
-R5
+Z8 !s108 1522959354.000000
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/extend.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/extend.v|
 !i113 1
+R5
 R6
-R7
 n@e@x@t@e@n@d
 vIMEM
-R0
+R7
 !i10b 1
 !s100 N]laCODBMa<R4X:gZCMzR1
 I0hZJU:jUI66VzPO[_MSJE1
+R0
 R1
-R2
 w1522778515
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/instruction-mem.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/instruction-mem.v
 L0 19
-R4
+R3
 r1
 !s85 0
 31
-R5
+R8
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/instruction-mem.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/instruction-mem.v|
 !i113 1
+R5
 R6
-R7
 n@i@m@e@m
 vMIPS
-R0
+R7
 !i10b 1
-!s100 Bc;74dPSL6nbGQn8=Aof;1
-IUM=J^0N[2Z:UiTL<`FbgP0
+!s100 DSD4ITNc:0PDFZl3F_P9J3
+IAeJKDD1>ha1MA]QeeWTha0
+R0
 R1
-R2
-w1522955329
+w1522957507
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips.v
-Z8 L0 12
-R4
+Z9 L0 12
+R3
 r1
 !s85 0
 31
-R5
+R8
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips.v|
 !i113 1
+R5
 R6
-R7
 n@m@i@p@s
 vMIPS_ALU
-R0
+R7
 !i10b 1
 !s100 4h4P;RkNFU255[a0=:Ad?2
 Ihj<^QKZ_BhfF^A23j]ziN0
+R0
 R1
-R2
 w1444784900
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-alu.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-alu.v
-R8
-R4
+R9
+R3
 r1
 !s85 0
 31
-R5
+R8
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-alu.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-alu.v|
 !i113 1
+R5
 R6
-R7
 n@m@i@p@s_@a@l@u
 vMIPS_CONTROL
-R0
+R7
 !i10b 1
-!s100 CMfnZ;JMVH:aY:V88lbH@3
-IHjIhhgFFLBOhkifJj;RKO1
+!s100 DOmZ;H2__][nG06<WEEaN2
+I2Sd105Pi9;eXE[e0AiP293
+R0
 R1
-R2
-w1522955864
+w1522959348
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-control.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-control.v
 L0 20
-R4
+R3
 r1
 !s85 0
 31
-R5
+R8
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-control.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-control.v|
 !i113 1
+R5
 R6
-R7
 n@m@i@p@s_@c@o@n@t@r@o@l
 vMIPS_DECODE
-R0
+R7
 !i10b 1
 !s100 fX4MfH<lDi<9::iW^ko1o1
 IVaG9M4z3h==[QBlEA>oJ01
+R0
 R1
 R2
-R3
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-decode.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-decode.v
-Z9 L0 13
-R4
+Z10 L0 13
+R3
 r1
 !s85 0
 31
-R5
+R8
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-decode.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-decode.v|
 !i113 1
+R5
 R6
-R7
 n@m@i@p@s_@d@e@c@o@d@e
 vMIPS_TB
-Z10 !s110 1522955915
+R7
 !i10b 1
 !s100 nffC?zi0H`F3k_I=f5SXf0
 IHU?k_YTW3;FeHR?ADIEeL2
+R0
 R1
 R2
-R3
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-tb.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-tb.v
-R9
-R4
+R10
+R3
 r1
 !s85 0
 31
-Z11 !s108 1522955915.000000
+R8
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-tb.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-tb.v|
 !i113 1
+R5
 R6
-R7
 n@m@i@p@s_@t@b
 vMUX32_2X1
-R10
+R7
 !i10b 1
 !s100 2Z=9oXzScaE;k;9``a5n`3
 IFzUJg=3?W_8L6EV@=>7lm2
+R0
 R1
 R2
-R3
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mux32-2x1.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mux32-2x1.v
 L0 8
-R4
+R3
 r1
 !s85 0
 31
-R11
+R8
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mux32-2x1.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mux32-2x1.v|
 !i113 1
+R5
 R6
-R7
 n@m@u@x32_2@x1
 vMUX5_2X1
-R10
+R7
 !i10b 1
 !s100 =9PhlG4PD5F3a;lPffIB:3
 IUgFla05amZWCn=Nh8ClTZ3
+R0
 R1
 R2
-R3
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mux5-2x1.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mux5-2x1.v
 L0 8
-R4
+R3
 r1
 !s85 0
 31
-R11
+R8
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mux5-2x1.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mux5-2x1.v|
 !i113 1
+R5
 R6
-R7
 n@m@u@x5_2@x1
 vPC_REG
-R10
+R7
 !i10b 1
 !s100 Y]`3M3mFAnBP0JccOBMIT2
 ILn[Acmj2TiBSQ966iL`G41
+R0
 R1
 R2
-R3
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/pc-reg.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/pc-reg.v
-R8
-R4
+R9
+R3
 r1
 !s85 0
 31
-R11
+R8
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/pc-reg.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/pc-reg.v|
 !i113 1
+R5
 R6
-R7
 n@p@c_@r@e@g
 vREG_FILE
-R10
+Z11 !s110 1522959355
 !i10b 1
 !s100 S9;EDj7X4]XX=e[3a[7jh0
 If37zL[gh=jFL0NCH`DSL:2
+R0
 R1
 R2
-R3
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/register-file.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/register-file.v
 L0 9
-R4
+R3
 r1
 !s85 0
 31
-R11
+Z12 !s108 1522959355.000000
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/register-file.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/register-file.v|
 !i113 1
+R5
 R6
-R7
 n@r@e@g_@f@i@l@e
 vSHIFT2
-R10
+R11
 !i10b 1
 !s100 O9;]IQ2eba]?mZH;o2g[U2
 ISgK1kVoHF5gL@=SU]d^jm0
+R0
 R1
 R2
-R3
 8C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/shift2.v
 FC:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/shift2.v
-R8
-R4
+R9
+R3
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/shift2.v|
 !s90 -reportprogress|300|-work|CompOrg_P2|-stats=none|C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/shift2.v|
 !i113 1
+R5
 R6
-R7
 n@s@h@i@f@t2

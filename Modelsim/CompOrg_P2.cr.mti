@@ -75,6 +75,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 2
 Top level modules:
 	EXTEND
 
+} {} {}} {C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips.v} {1 {vlog -work CompOrg_P2 -stats=none {C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+-- Compiling module MIPS
+
+Top level modules:
+	MIPS
+
 } {} {}} {C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-tb.v} {1 {vlog -work CompOrg_P2 -stats=none {C:/Users/Alex/Documents/School/Semester_6/ComputerOrg_ECE2500/Project 2/P2-start/mips-tb.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
 -- Compiling module MIPS_TB

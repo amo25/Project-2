@@ -58,6 +58,10 @@ module MIPS_CONTROL
    //add bne control signal here
    output bne_out;
    reg bne_out;
+   
+   //add jr control signal here
+   output jr_out;
+   reg jr_out;
 
    always@*
      begin
@@ -297,7 +301,7 @@ module MIPS_CONTROL
 	    end // case
 		
 	//jr
-	{6'h2, 6'hx}:
+	{6'h0, 6'h8}:
 	    begin
 	       regDst_out   = 1; //0 means RT  and 1 means RD
 	       ALUSrc_out   = 1'bx; //0 means REG and 1 means IMM
