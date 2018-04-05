@@ -342,7 +342,7 @@ module MIPS_CONTROL
 	       regDst_out   = 1'bx; //Doesn't matter, write register will be chosen as $ra
 	       ALUSrc_out   = 1'bx; //doesn't matter, not using the ALU. Write data will be chosen as PC+4
 	       memToReg_out = 0; //0 means NO  and 1 meas YES
-	       regWrite_out = 0; //0 means NO  and 1 means YES
+	       regWrite_out = 1; //We're gonna write to a reg for jal!
 	       memWrite_out = 0; //0 means NO  and 1 means YES
 	       memRead_out  = 0; //0 means NO  and 1 means YES
 	       branch_out   = 0; //0 means NO  and 1 means YES

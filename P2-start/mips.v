@@ -77,6 +77,7 @@ module MIPS(clk, reset);
    assign constantRANum = 5'd31; //todo make sure this works
    wire [4:0] newWriteRegMux_out; //output from the newWriteRegMux
    wire [31:0] newWriteDataMux_out; 
+   wire [31:0] PCplus8;			//create PCplus8
    //////////////////////////////////////////////
    
    //jump
@@ -120,13 +121,22 @@ module MIPS(clk, reset);
       .select_in(jal)
       );
 	  
-	  //mux to ouput to write data. Takes output from mux selected by MemtoReg (0) and PC+4 (1). Selected by jal
+	  //mux to ouput to write data. Takes output from mux selected by MemtoReg (0) and PC+8 (1). Selected by jal
 	MUX32_2X1 newWriteDataMux
      (
       .value_out(newWriteDataMux_out),
       .value0_in(writeData_muxOut), 
-      .value1_in(PCplus4), 
+      .value1_in(PCplus8), 
       .select_in(jal)
+      );
+	  
+	  //add another adder to create PC+8 to give to JAL
+	     // instantiation of a 32-bit adder used for computing PC+4
+   ADDER32 anotherPlus4Adder
+     (
+      .result_out(PCplus8),
+      .a_in(32'd4), 
+      .b_in(PCplus4)
       );
    
    //shift the sign extended immediate by 2
