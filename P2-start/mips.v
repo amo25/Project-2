@@ -32,6 +32,7 @@ module MIPS(clk, reset);
    wire [3:0]  ALUCntrl;
    wire        branch, jump;
    wire			bne; //added bne control wire
+   wire			jr; //added jr control wire
 
    // ALU related wires
    wire [31:0] A, B, ALUout;
@@ -60,7 +61,46 @@ module MIPS(clk, reset);
    wire not_zero; //inverted zero output. 1 if operands are not equal
    wire bneAnd_out; //output from the notEqual & bne
    wire beq_or_bne_out;	//or beq and bne and gates
+   
+   //jump stuff
+   wire [31:0] iPadded;		//Instruction[25:0], padded at the top with zero's
+   wire [31:0] iShifted; 	//left shifted jump addy. We only care about the lower 28 bits (iShifted[27:0])
+   wire [31:0] jumpAddy;	//Concatenated {PCplus4[31-28], iShifted[27:0]}
+   wire [31:0] jumpMuxOne_out; //output from the jump mux
+   
+   //jr stuff
+   wire [31:0] jumpMuxTwo_out;
    //////////////////////////////////////////////
+   
+   //jump
+   assign iPadded = {6'd0, instruction[25:0]};
+   //shift iPadded by 25
+   SHIFT2 shift_iPadded
+	(
+		.word_out(iShifted),
+		.word_in(iPadded)
+	);
+	//concatenate stuff to get jumpAddy. TODO PCplus4 may cause problems here
+	assign jumpAddy = {PCplus4[31:28], iShifted[27:0]};
+	
+	//mux will take jumpAddy (1) and branchMuxOne_out (0) and be controlled by the jump signal. Will output to PC
+	MUX32_2X1 jumpMuxOne
+     (
+      .value_out(jumpMuxOne_out),
+      .value0_in(branchMuxOne_out), 			
+      .value1_in(jumpAddy), 
+      .select_in(jump)
+      );
+	  
+	//add another mux to handle jr. Input jumpMuxOne_out (0), A (1) (register file data1_out). Select via jr. output to PC
+   	MUX32_2X1 jumpMuxTwo
+     (
+      .value_out(jumpMuxTwo_out),
+      .value0_in(jumpMuxOne_out), 			
+      .value1_in(A), 
+      .select_in(jr)
+      );
+	  
    
    //shift the sign extended immediate by 2
    SHIFT2 shiftExtendedImm
@@ -101,9 +141,6 @@ module MIPS(clk, reset);
       .value1_in(computedBranchTargetAddress), 
       .select_in(beq_or_bne_out)
       );
-	
-	
-   //TODO we can leave this as is right now, and put the branchMuxOne_out directly to the input of PC. Later, we will need to sever this connection and put it another mux, to implement jump.
    
    
    //ADD DATA MEMORY
@@ -154,7 +191,7 @@ module MIPS(clk, reset);
       .clk(clk),
       .reset(reset),
       .PC_out(PC),
-      .PC_in(branchMuxOne_out)	//TODO break this connection, give it jump mux output
+      .PC_in(jumpMuxTwo_out)	//broke this connection, give it jump mux output
       );
 
    // instantiation of the decoder
@@ -186,7 +223,8 @@ module MIPS(clk, reset);
       .memRead_out(memRead),
       .memToReg_out(memToReg), 
       .jump_out(jump),
-	  .bne_out(bne)
+	  .bne_out(bne),
+	  .jr_out(jr)
       );
 
    // instantiation of the ALU

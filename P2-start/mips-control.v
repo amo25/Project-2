@@ -32,7 +32,8 @@ module MIPS_CONTROL
    memRead_out,
    memToReg_out, 
    jump_out,
-   bne_out
+   bne_out,
+   jr_out
    );
    
    parameter control_delay = 6;	
@@ -86,6 +87,7 @@ module MIPS_CONTROL
 	       extCntrl_out = 0; //0 means Zero-extension and 1 means Sign-extension
 	       ALUCntrl_out = 4'b0010; //Refer to table on page 316 of the book
 		   bne_out = 0;	//not a bne instruction
+		   jr_out = 0;
 	    end // case: {6'h0, 6'h0}
 	  
 	  // For addi instruction, 
@@ -103,6 +105,7 @@ module MIPS_CONTROL
 	       extCntrl_out = 1;
 	       ALUCntrl_out = 4'b0010;
 		   bne_out = 0;	//not a bne instruction
+		   jr_out = 0;
 	    end // case: {6'h8, 6'hx}
 	  	  
 	  {6'hf, 6'hx}: // lui
@@ -118,6 +121,7 @@ module MIPS_CONTROL
 	       extCntrl_out = 1'bx;
 	       ALUCntrl_out = 4'b1111; // Besides the operations on page 301, our ALU implements lui with this special code
 		   bne_out = 0;	//not a bne instruction
+		   jr_out = 0;
 	    end // case: 6'hf
 
 	  // I have started the implementation of add here
@@ -136,6 +140,7 @@ module MIPS_CONTROL
 	       extCntrl_out = 1'bx; //0 means Zero-extension and 1 means Sign-extension. I think it doesn't matter in this case
 	       ALUCntrl_out = 4'b0010; //Refer to table on page 316 of the book. Use 0010 for R type instruction. ALU operation: add
 		   bne_out = 0;	//not a bne instruction
+		   jr_out = 0;
 	    end // case: {6'h0, 6'h20}
 		
 	//implement sub
@@ -152,6 +157,7 @@ module MIPS_CONTROL
 	       extCntrl_out = 1'bx; //0 means Zero-extension and 1 means Sign-extension. I think it doesn't matter in this case
 	       ALUCntrl_out = 4'b0110; //Refer to table on page 316 of the book. Use 0110 for R type: Alu operation: sub
 		   bne_out = 0;	//not a bne instruction
+		   jr_out = 0;
 	    end // case: {6'h0, 6'h22}
 		
 	//slt
@@ -168,6 +174,7 @@ module MIPS_CONTROL
 	       extCntrl_out = 1'bx; //0 means Zero-extension and 1 means Sign-extension. I think it doesn't matter in this case
 	       ALUCntrl_out = 4'b0111; //Refer to table on page 316 of the book. Use 0111 for R type: Alu operation: set on less than
 		   bne_out = 0;	//not a bne instruction
+		   jr_out = 0;
 	    end // case: {6'h0, 6'h2a
 		
 	//andi
@@ -184,6 +191,7 @@ module MIPS_CONTROL
 	       extCntrl_out = 1'b1; //0 means Zero-extension and 1 means Sign-extension.
 	       ALUCntrl_out = 4'b0000; //Refer to table on page 316 of the book. Use 0000 for ALU: and
 		   bne_out = 0;	//not a bne instruction
+		   jr_out = 0;
 	    end // case: {6'hc, 6'hx
 		
 	//nor
@@ -200,6 +208,7 @@ module MIPS_CONTROL
 	       extCntrl_out = 1'bx; //0 means Zero-extension and 1 means Sign-extension.
 	       ALUCntrl_out = 4'b1100; //Refer to table on page 316 of the book. Use 1100 for ALU: nor
 		   bne_out = 0;	//not a bne instruction
+		   jr_out = 0;
 	    end // case
 		
 	//lw
@@ -216,6 +225,7 @@ module MIPS_CONTROL
 	       extCntrl_out = 1; //0 means Zero-extension and 1 means Sign-extension. lw R[rt] = M[R[rs]+SignExtImm]
 	       ALUCntrl_out = 4'b0010; //lw ALU OP: add
 		   bne_out = 0;	//not a bne instruction
+		   jr_out = 0;
 	    end // case
 		
 	//sw
@@ -232,6 +242,7 @@ module MIPS_CONTROL
 	       extCntrl_out = 1'b1; //0 means Zero-extension and 1 means Sign-extension
 	       ALUCntrl_out = 4'b0010; //sw ALU OP: add
 		   bne_out = 0;	//not a bne instruction
+		   jr_out = 0;
 	    end // case
 		
 	//beq
@@ -248,6 +259,7 @@ module MIPS_CONTROL
 	       extCntrl_out = 1'b1; //0 means Zero-extension and 1 means Sign-extension
 	       ALUCntrl_out = 4'b0110; //beq ALU OP: sub
 		   bne_out = 0;	//not a bne instruction
+		   jr_out = 0;
 	    end // case
 		
 	//bne
@@ -264,8 +276,43 @@ module MIPS_CONTROL
 	       extCntrl_out = 1'b1; //0 means Zero-extension and 1 means Sign-extension
 	       ALUCntrl_out = 4'b0110; //beq ALU OP: sub
 		   bne_out = 1;	//bne instruction
+		   jr_out = 0;
 	    end // case
 		
+	//j
+	{6'h2, 6'hx}:
+	    begin
+	       regDst_out   = 0; //0 means RT  and 1 means RD
+	       ALUSrc_out   = 1'bx; //0 means REG and 1 means IMM
+	       memToReg_out = 1'bx; //0 means NO  and 1 meas YES
+	       regWrite_out = 0; //0 means NO  and 1 means YES
+	       memWrite_out = 0; //0 means NO  and 1 means YES
+	       memRead_out  = 1'bx; //0 means NO  and 1 means YES
+	       branch_out   = 0; //0 means NO  and 1 means YES
+	       jump_out     = 1; //0 means NO  and 1 means YES
+	       extCntrl_out = 1'bx; //0 means Zero-extension and 1 means Sign-extension
+	       ALUCntrl_out = 4'bxxxx; //beq ALU OP: sub
+		   bne_out = 0;
+		   jr_out = 0;
+	    end // case
+		
+	//jr
+	{6'h2, 6'hx}:
+	    begin
+	       regDst_out   = 1; //0 means RT  and 1 means RD
+	       ALUSrc_out   = 1'bx; //0 means REG and 1 means IMM
+	       memToReg_out = 1'bx; //0 means NO  and 1 meas YES
+	       regWrite_out = 0; //0 means NO  and 1 means YES
+	       memWrite_out = 0; //0 means NO  and 1 means YES
+	       memRead_out  = 1'bx; //0 means NO  and 1 means YES
+	       branch_out   = 0; //0 means NO  and 1 means YES
+	       jump_out     = 1; //0 means NO  and 1 means YES
+	       extCntrl_out = 1'bx; //0 means Zero-extension and 1 means Sign-extension
+	       ALUCntrl_out = 4'bxxxx; //beq ALU OP: sub
+		   bne_out = 0;
+		   jr_out = 1;
+	    end // case
+	
 		
 	  default:   //anything else
 	    begin		
