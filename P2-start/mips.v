@@ -33,6 +33,7 @@ module MIPS(clk, reset);
    wire        branch, jump;
    wire			bne; //added bne control wire
    wire			jr; //added jr control wire
+   wire			jal; //added jal control wire
 
    // ALU related wires
    wire [31:0] A, B, ALUout;
@@ -70,6 +71,12 @@ module MIPS(clk, reset);
    
    //jr stuff
    wire [31:0] jumpMuxTwo_out;
+   
+   //jal stuff
+   wire [4:0] constantRANum;
+   assign constantRANum = 5'd31; //todo make sure this works
+   wire [4:0] newWriteRegMux_out; //output from the newWriteRegMux
+   wire [31:0] newWriteDataMux_out; 
    //////////////////////////////////////////////
    
    //jump
@@ -101,6 +108,26 @@ module MIPS(clk, reset);
       .select_in(jr)
       );
 	  
+	  //jal
+	  //mux to output to write register. Selected by jal.
+	  //Input 0: mux controlled by RegDst (regDstAddr).
+	  //Input 1: $ra = 31. TODO make sure constant 31 is the correct value. Also make sure you use this as a 5 bit number
+   MUX5_2X1 newWriteRegMux 
+     (
+      .value_out(newWriteRegMux_out),
+      .value0_in(regDstAddr),
+      .value1_in(constantRANum),
+      .select_in(jal)
+      );
+	  
+	  //mux to ouput to write data. Takes output from mux selected by MemtoReg (0) and PC+4 (1). Selected by jal
+	MUX32_2X1 newWriteDataMux
+     (
+      .value_out(newWriteDataMux_out),
+      .value0_in(writeData_muxOut), 
+      .value1_in(PCplus4), 
+      .select_in(jal)
+      );
    
    //shift the sign extended immediate by 2
    SHIFT2 shiftExtendedImm
@@ -180,8 +207,8 @@ module MIPS(clk, reset);
       .data2_out(regData2),
       .readAddr1_in(rs),
       .readAddr2_in(rt),
-      .writeAddr_in(regDstAddr),
-      .writeData_in(writeData_muxOut),	//Break original connection, give it the output of a mux which chooses between ALUout and DMEMout based on MemtoReg.
+      .writeAddr_in(newWriteRegMux_out), //broke original connection, giving it output of newWriteRegMux
+      .writeData_in(newWriteDataMux_out),	//Break original connection, give it the output of a mux which chooses between ALUout and DMEMout based on MemtoReg.
       .writeCntrl_in(regWrite)
       );
 
@@ -224,7 +251,8 @@ module MIPS(clk, reset);
       .memToReg_out(memToReg), 
       .jump_out(jump),
 	  .bne_out(bne),
-	  .jr_out(jr)
+	  .jr_out(jr),
+	  .jal_out(jal)
       );
 
    // instantiation of the ALU
